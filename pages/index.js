@@ -20,12 +20,14 @@ export default function Home({ jobs, user }) {
       </div>
 
       {!session && (
-        <a
-          className='border px-8 py-2 mt-5 font-bold rounded-full bg-black text-white border-black '
-          href='/api/auth/signin'
-        >
-          login
-        </a>
+        <div className='flex justify-center'>
+          <a
+            className='border px-8 py-2 mt-5 font-bold rounded-full bg-black text-white border-black'
+            href='/api/auth/signin'
+          >
+            login
+          </a>
+        </div>
       )}
 
       {session && (
