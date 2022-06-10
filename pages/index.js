@@ -9,7 +9,11 @@ export default function Home({ jobs, user }) {
   const router = useRouter()
   const { data: session, status } = useSession()
 
-  if (session && !session.user.name) {
+  const loading = status === 'loading'
+
+  if (loading) return null
+
+  if (!loading && session && !session.user.name) {
     router.push('/setup')
   }
 
