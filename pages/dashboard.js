@@ -26,8 +26,8 @@ export default function Dashboard({ jobs, user, applications }) {
       {user.company ? (
         <div>
           {jobs.map((job, index) => (
-            <>
-              <Job key={index} job={job} isDashboard={true} />
+            <div key={index}>
+              <Job job={job} isDashboard={true} />
 
               <div className='mb-4 mt-20'>
                 <div className='pl-16 pr-16 -mt-6'>
@@ -41,8 +41,8 @@ export default function Dashboard({ jobs, user, applications }) {
                     </p>
                   )}
 
-                  {job.applications?.map((application, index) => (
-                    <>
+                  {job.applications?.map((application, application_index) => (
+                    <div key={index + '-' + application_index}>
                       <h2 className='text-base font-normal mt-3'>
                         <span className='text-base font-bold mt-3 mr-3'>
                           {application.author.name}
@@ -53,11 +53,11 @@ export default function Dashboard({ jobs, user, applications }) {
                         {application.coverletter}
                       </p>
                       <hr />
-                    </>
+                    </div>
                   ))}
                 </div>
               </div>
-            </>
+            </div>
           ))}
         </div>
       ) : (
